@@ -1,0 +1,20 @@
+base_size = 14px
+primary_ratio = 1.618
+
+setup_modular_scale(bs = 14px, ratio = 1.618)
+  base_size = bs
+  primary_ratio = ratio
+
+scale(iter)
+  iter = floor(iter)
+  sz = base_size
+  abs_iter = abs(iter)
+  
+  if (iter > 0)
+    for i in 0...abs_iter
+      sz = sz * primary_ratio
+  else
+    for i in 0...abs_iter
+      sz = sz / primary_ratio
+  
+  return sz
